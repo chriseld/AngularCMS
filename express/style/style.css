@@ -1,0 +1,91 @@
+.container {
+    width: 100vh;
+    height: 100vh;
+    display: flex;
+}
+
+/* for phones */
+
+header {
+
+}
+
+main {
+
+}
+
+nav {
+
+}
+
+article {
+
+}
+
+aside {
+
+}
+
+footer {
+
+}
+
+/* for tablets */
+
+@media only screen and (min-width: 600px) {
+
+    header {
+
+    }
+    
+    main {
+    
+    }
+    
+    nav {
+    
+    }
+    
+    article {
+    
+    }
+    
+    aside {
+    
+    }
+    
+    footer {
+    
+    }
+
+}
+
+/* for desktops */
+
+@media only screen and (min-width: 768px) {
+    
+    header {
+
+    }
+    
+    main {
+    
+    }
+    
+    nav {
+    
+    }
+    
+    article {
+    
+    }
+    
+    aside {
+    
+    }
+    
+    footer {
+    
+    }
+
+}
