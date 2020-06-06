@@ -17,9 +17,13 @@ function toggleTheme() {
 // Function to set the text of the toggle button
 function setSwitchImg() {
 	if (localStorage.getItem('theme') === 'theme-light') {
-		document.getElementById("switch").src = "../assets/img/icons/darkmode.png";
+        document.getElementById("switch").src = "../assets/img/icons/darkmode.png";
+        document.getElementById("switch").title = "Switch to Dark Mode";
+        document.getElementById("switch").alt = "Image courtesy of Alice Design from The Noun Project";
 	} else {
-		document.getElementById("switch").src = "../assets/img/icons/lightmode.png";
+        document.getElementById("switch").src = "../assets/img/icons/lightmode.png";
+        document.getElementById("switch").title = "Switch to Light Mode";
+        document.getElementById("switch").alt = "Image courtesy of Tawny Whatmore from The Noun Project";
 	}
 }
 
