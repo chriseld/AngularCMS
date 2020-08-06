@@ -20,6 +20,45 @@ html, body {
     --color-shadow: #68695e;
 }
 
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  
+    pointer-events: none;
+    opacity: 0;
+  
+    will-change: transform, opacity;
+
+    transform: scale(1.15);
+
+    transition:
+        transform 0.1s cubic-bezier(0.465, 0.183, 0.153, 0.946),
+        opacity 0.1s cubic-bezier(0.465, 0.183, 0.153, 0.946);
+  }
+
+.visible {
+    pointer-events: auto;
+    opacity: 1;
+
+    transform: scale(1);
+
+    transition:
+      transform 0.3s cubic-bezier(0.465, 0.183, 0.153, 0.946),
+      opacity 0.3s cubic-bezier(0.465, 0.183, 0.153, 0.946);
+}
+
+.modalBox {
+    background-color: var(--color-primary);
+    border-radius: 8px;
+    border: 3px solid var(--color-shadow);
+    width: 80%;
+    height: 80%;
+    margin: auto;
+}
+
 .container {
     width: 100%;
     height: 100%;
@@ -51,6 +90,9 @@ header {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .bannerText {

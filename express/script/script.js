@@ -36,3 +36,12 @@ function setSwitchImg() {
    }
    setSwitchImg();
 })();
+
+$(document).ready(function(){
+  $(".login").click(function(){
+    $(".modal").toggleClass("visible");
+  });
+  $(".closeModal").click(function(){
+    $(".modal").toggleClass("visible");
+  });
+});
