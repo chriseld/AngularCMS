@@ -1,11 +1,14 @@
 {
-    "name": "NAME-CMS",
-    "version": "1.0.0",
-    "description": "",
-    "scripts": {
-        "start": "node server.js"
-    },
-    "dependencies": {
-        "express": "^4.17.1"
-    }
+  "name": "name-cms",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Chris Eld",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
