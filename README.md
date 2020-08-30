@@ -1,2 +1,2 @@
-# NAME-CMS
-A simple Content Management System (CMS) made with Node.js, Angular, mySQL, and Express (NAME).
+# e-pulp
+A simple Content Management System (CMS) made with Node.js, mySQL, and Express.
