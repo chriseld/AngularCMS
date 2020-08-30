@@ -6,8 +6,16 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chriseld/e-pulp.git"
+  },
   "author": "Chris Eld",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chriseld/e-pulp/issues"
+  },
+  "homepage": "https://github.com/chriseld/e-pulp#readme",
   "dependencies": {
     "express": "^4.17.1"
   }
