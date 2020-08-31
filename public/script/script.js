@@ -37,11 +37,19 @@ function setSwitchImg() {
    setSwitchImg();
 })();
 
-$(document).ready(function(){
-  $(".login").click(function(){
-    $(".modal").toggleClass("visible");
+$(".modalBtn").click(function(event) {
+  event.preventDefault();
+  $.get( "login.html", function( data ) {
+    $( ".modalBox" ).html( data );
   });
-  $(".closeModal").click(function(){
-    $(".modal").toggleClass("visible");
-  });
-});
+  $(".modal").toggleClass("visible");
+})
+
+// $(document).ready(function(){
+//   $(".login").click(function(){
+//     $(".modal").toggleClass("visible");
+//   });
+//   $(".closeModal").click(function(){
+//     $(".modal").toggleClass("visible");
+//   });
+// });
