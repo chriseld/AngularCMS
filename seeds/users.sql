@@ -5,6 +5,7 @@ CREATE TABLE `users` (
   `password` varchar(255) NOT NULL,
   `role` varchar(45) NOT NULL DEFAULT 'user',
   `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  'lastused' datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username_UNIQUE` (`username`),
   UNIQUE KEY `email_UNIQUE` (`email`)
