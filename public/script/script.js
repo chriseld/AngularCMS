@@ -43,13 +43,10 @@ $(".modalBtn").click(function(event) {
     $( ".modalBox" ).html( data );
   });
   $(".modal").toggleClass("visible");
-})
+});
 
-// $(document).ready(function(){
-//   $(".login").click(function(){
-//     $(".modal").toggleClass("visible");
-//   });
-//   $(".closeModal").click(function(){
-//     $(".modal").toggleClass("visible");
-//   });
-// });
+$(document).ready(function(){
+  $(".closeModal").click(function(){
+    $(".modal").toggleClass("visible");
+  });
+});
