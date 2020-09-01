@@ -20,10 +20,18 @@ function setSwitchImg() {
         document.getElementById("switch").src = "../assets/img/icons/darkmode.png";
         document.getElementById("switch").title = "Switch to Dark Mode";
         document.getElementById("switch").alt = "Image courtesy of Alice Design from The Noun Project";
+
+        document.getElementById("accountModalBtn").src = "../assets/img/icons/profile-dark.png";
+        document.getElementById("accountModalBtn").title = "Login";
+        document.getElementById("accountModalBtn").alt = "Image courtesy of Alice Design from The Noun Project";
 	} else {
         document.getElementById("switch").src = "../assets/img/icons/lightmode.png";
         document.getElementById("switch").title = "Switch to Light Mode";
         document.getElementById("switch").alt = "Image courtesy of Tawny Whatmore from The Noun Project";
+
+        document.getElementById("accountModalBtn").src = "../assets/img/icons/profile-light.png";
+        document.getElementById("accountModalBtn").title = "Login";
+        document.getElementById("accountModalBtn").alt = "Image courtesy of Alice Design from The Noun Project";
 	}
 }
 
@@ -37,12 +45,12 @@ function setSwitchImg() {
    setSwitchImg();
 })();
 
-$(".modalBtn").click(function(event) {
-  event.preventDefault();
-  $.get( "login.html", function( data ) {
-    $( ".modalBox" ).html( data );
+$(document).ready(function(){
+  $("#accountModalBtn").click(function(event) {
+    event.preventDefault();
+    $( ".modalBox" ).load ( "login.html" );
+    $(".modal").toggleClass("visible");
   });
-  $(".modal").toggleClass("visible");
 });
 
 $(document).ready(function(){
