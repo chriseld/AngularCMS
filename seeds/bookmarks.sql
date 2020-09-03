@@ -4,3 +4,12 @@ CREATE TABLE `name_cms`.`bookmarks` (
   `bookId` INT NOT NULL,
   `chapterId` INT NOT NULL,
   PRIMARY KEY (`id`));
+
+  --azure
+
+  CREATE TABLE bookmarks (
+  id INT NOT NULL IDENTITY,
+  userid INT NOT NULL,
+  bookid INT NOT NULL,
+  chapterId INT NOT NULL,
+  PRIMARY KEY (id));

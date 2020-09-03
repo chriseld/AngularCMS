@@ -7,4 +7,17 @@ CREATE TABLE `books` (
   `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name_UNIQUE` (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+)
+
+--azure
+
+CREATE TABLE books (
+  id int NOT NULL IDENTITY,
+  name varchar(255) NOT NULL,
+  userid int NOT NULL,
+  cover varbinary(MAX),
+  blurb varchar(MAX),
+  datecreated datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (id),
+  CONSTRAINT name_unique UNIQUE (name)
+)
