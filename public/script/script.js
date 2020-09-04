@@ -58,3 +58,7 @@ $(document).ready(function(){
     $(".modal").toggleClass("visible");
   });
 });
+
+$(document).ready(function(){
+  console.log("connected through index.html" + AZURE_STORAGE_CONNECTION_STRING);
+});
