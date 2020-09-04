@@ -1,8 +1,8 @@
 const http = require('http');
-const express = require('express')
-const app = express()
-const port = process.env.PORT || 3000
-const mysql = require('mysql');
+const express = require('express');
+const app = express();
+const port = process.env.PORT || 3000;
+const connection = require('./public/script/db_connection');
 
 app.use(express.static('public'))
 
