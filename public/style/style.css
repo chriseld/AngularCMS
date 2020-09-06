@@ -20,6 +20,10 @@ html, body {
     --color-shadow: #68695e;
 }
 
+fieldset {
+    margin: 5px;
+}
+
 .modal {
     position: fixed;
     top: 0;
