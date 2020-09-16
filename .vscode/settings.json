@@ -1,8 +1,0 @@
-{
-    "appService.zipIgnorePattern": [
-        "node_modules{,/**}",
-        ".vscode{,/**}"
-    ],
-    "appService.defaultWebAppToDeploy": "/subscriptions/cc5a7592-d875-4ef3-b340-a79330cde3a6/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/e-pulp",
-    "appService.deploySubpath": "."
-}
