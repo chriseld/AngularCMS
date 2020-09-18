@@ -1,9 +1,13 @@
 import React from 'react';
+import './nav.css';
 import Darkmode from "../../images/icons/darkmode.png";
 import Lightmode from "../../images/icons/lightmode.png";
 import ProfileLight from "../../images/icons/profile-light.png";
 import ProfileDark from "../../images/icons/profile-dark.png";
 import ProfileLoggedIn from "../../images/icons/profile-loggedin.png";
+
+import { ModalProvider } from "../modal/ModalContext/ModalContext";
+import Login from '../modal/login/login'
 
 if (localStorage.getItem('theme') === 'theme-dark') {
     setTheme("theme-dark");
@@ -45,10 +49,12 @@ function toggleTheme() {
 	}
 }
 
+
+
 const Nav = () => (
     <nav>
     <img src={Darkmode} alt="theme switcher" id="switch" onClick={toggleTheme}></img>
-    <img src={ProfileDark} alt="Log in/register" id="accountModalBtn"></img>
+    <ModalProvider><Login /></ModalProvider>
     </nav>
 );
 

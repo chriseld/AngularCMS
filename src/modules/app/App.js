@@ -1,28 +1,37 @@
 import React from 'react';
 import './App.css';
+import Reader from '../reader/reader';
+import Sidebar from '../sidebar/sidebar';
 
-import NavRender from '../nav/nav';
+import ToggleTheme from '../theme/theme'
+import { ModalProvider } from "../modal/ModalContext/ModalContext";
 
+import Darkmode from "../../images/icons/darkmode.png";
+import Login from '../modal/login/login';
 
 
 function App() {
 
   return (
     <div className="App">
+
       <header>
         <h1 name="bannerText">e-pulp</h1>
       </header>
 
-      { NavRender() }
+      <nav>
+      <img src={Darkmode} alt="theme switcher" id="switch" onClick={ToggleTheme}></img>
+      <ModalProvider><Login /></ModalProvider>
+      </nav>
 
-      <div className="main">
+      <div id="main">
 
         <div className="sidebar">
-
+          { Sidebar() }
         </div>
 
         <div className="reader">
-
+          { Reader() }
         </div>
 
       </div>
@@ -30,7 +39,9 @@ function App() {
       <footer>
         <p className="copyright">&copy; Chris Eld, 2020</p>
       </footer>
+
     </div>
+
   );
 }
 
