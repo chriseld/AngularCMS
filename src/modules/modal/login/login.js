@@ -8,7 +8,9 @@ const Login = () => {
 
   return (
     <>
-      <img src={ProfileDark} alt="Log in/register" id="accountModalBtn" onClick={() => handleModal("This is component modal content")}></img>
+      <img src={ProfileDark} alt="Log in/register" id="accountModalBtn" onClick={() => handleModal(
+      <><span className="closeModal btn"  onClick={() => handleModal()}>Cancel</span></>)
+      }></img>
     </>
   );
 };
