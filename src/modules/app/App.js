@@ -4,10 +4,7 @@ import Reader from '../reader/reader';
 import Sidebar from '../sidebar/sidebar';
 
 import ToggleTheme from '../theme/theme'
-import { ModalProvider } from "../modal/ModalContext/ModalContext";
-
 import Darkmode from "../../images/icons/darkmode.png";
-import Login from '../modal/login/login';
 
 
 function App() {
@@ -21,7 +18,6 @@ function App() {
 
       <nav>
       <img src={Darkmode} alt="theme switcher" id="switch" onClick={ToggleTheme}></img>
-      <ModalProvider><Login /></ModalProvider>
       </nav>
 
       <div id="main">

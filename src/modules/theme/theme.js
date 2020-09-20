@@ -31,17 +31,17 @@ function ToggleTheme() {
         document.getElementById("switch").title = "Switch to Dark Mode";
         document.getElementById("switch").alt = "Image courtesy of Alice Design from The Noun Project";
 
-        document.getElementById("accountModalBtn").src = ProfileDark;
-        document.getElementById("accountModalBtn").title = "Login";
-        document.getElementById("accountModalBtn").alt = "Image courtesy of Alice Design from The Noun Project";
+        // document.getElementById("accountModalBtn").src = ProfileDark;
+        // document.getElementById("accountModalBtn").title = "Login";
+        // document.getElementById("accountModalBtn").alt = "Image courtesy of Alice Design from The Noun Project";
 	} else {
         document.getElementById("switch").src = Lightmode;
         document.getElementById("switch").title = "Switch to Light Mode";
         document.getElementById("switch").alt = "Image courtesy of Tawny Whatmore from The Noun Project";
 
-        document.getElementById("accountModalBtn").src = ProfileLight;
-        document.getElementById("accountModalBtn").title = "Login";
-        document.getElementById("accountModalBtn").alt = "Image courtesy of Alice Design from The Noun Project";
+        // document.getElementById("accountModalBtn").src = ProfileLight;
+        // document.getElementById("accountModalBtn").title = "Login";
+        // document.getElementById("accountModalBtn").alt = "Image courtesy of Alice Design from The Noun Project";
 	}
 }
 

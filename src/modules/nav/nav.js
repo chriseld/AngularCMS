@@ -54,7 +54,6 @@ function toggleTheme() {
 const Nav = () => (
     <nav>
     <img src={Darkmode} alt="theme switcher" id="switch" onClick={toggleTheme}></img>
-    <ModalProvider><Login /></ModalProvider>
     </nav>
 );
 
