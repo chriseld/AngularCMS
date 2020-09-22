@@ -1,35 +1,11 @@
 import React from 'react';
-import './nav.css';
 import Darkmode from "../../images/icons/darkmode.png";
 import Lightmode from "../../images/icons/lightmode.png";
 import ProfileLight from "../../images/icons/profile-light.png";
 import ProfileDark from "../../images/icons/profile-dark.png";
 import ProfileLoggedIn from "../../images/icons/profile-loggedin.png";
-
-import { ModalProvider } from "../modal/ModalContext/ModalContext";
-import Login from '../modal/login/login'
-
-if (localStorage.getItem('theme') === 'theme-dark') {
-    setTheme("theme-dark");
-  } else {
-    setTheme("theme-light");
-  };
-
-function setTheme(themeName) {
-    localStorage.setItem('theme', themeName);
-    document.documentElement.className = themeName;
-  }
-
-function toggleTheme() {
-    if (localStorage.getItem('theme') === 'theme-dark'){
-        setTheme('theme-light');
-    } else {
-        setTheme('theme-dark');
-    }
-    setSwitchImg();
- }
-
- function setSwitchImg() {
+ 
+ function SetSwitchImg() {
 	if (localStorage.getItem('theme') === 'theme-light') {
         document.getElementById("switch").src = Darkmode;
         document.getElementById("switch").title = "Switch to Dark Mode";
@@ -49,12 +25,4 @@ function toggleTheme() {
 	}
 }
 
-
-
-const Nav = () => (
-    <nav>
-    <img src={Darkmode} alt="theme switcher" id="switch" onClick={toggleTheme}></img>
-    </nav>
-);
-
-export default Nav;
+export default SetSwitchImg;
