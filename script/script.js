@@ -51,7 +51,7 @@ function closeModal() {
 
 function toggleModal(x) {
     switch (x) {
-        case 1:
+        case "login":
             $('.modalBox').html(`
                 <fieldset>
                     <legend>Log In</legend>
@@ -59,14 +59,14 @@ function toggleModal(x) {
                     <p>Password: <input type='password' name='loginPassword' id='loginPassword' /></p> <br>
                     <div class='buttons'>
                         <span id='loginBtn' class='btn'>Login</span>
-                        <span id='registerBtn' class='btn' onclick='toggleModal(2)'>Not a user yet? Register!</span>
+                        <span id='registerBtn' class='btn' onclick='toggleModal("register")'>Not a user yet? Register!</span>
                         <span id='closeBtn' class='btn' onclick='closeModal()'>Close</span>
                     </div>
                 </fieldset>
             `);
             $(".modal").toggleClass("visible");
         break;
-        case 2:
+        case "register":
             $('.modalBox').html(`
                 <fieldset>
                     <legend>Register</legend>

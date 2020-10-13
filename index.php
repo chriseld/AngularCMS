@@ -1,3 +1,5 @@
+<? include "autoload.php"; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,11 +20,11 @@
 
      <nav>
         <img src="/images/icons/darkmode.png" id="switch" onclick="toggleTheme()"></img>
-        <img src="/images/icons/profile-dark.png" alt="Log in/register" id="accountModalBtn" onclick="toggleModal(1)">
+        <img src="/images/icons/profile-dark.png" alt="Log in/register" id="accountModalBtn" onclick="toggleModal('login')">
      </nav>
 
     <article>
-
+        
     </article>
 
     <aside>
