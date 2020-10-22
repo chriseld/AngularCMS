@@ -65,6 +65,22 @@ function checkEmail(str) {
       }
 }
 
+function checkName(str) {
+    if (str.length == 0) {
+        document.getElementById("nameError").innerHTML = "";
+        return;
+      } else {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("nameError").innerHTML = this.responseText;
+          }
+        };
+        xmlhttp.open("GET", "registerName.php?q=" + str, true);
+        xmlhttp.send();
+      }
+}
+
 function toggleModal(x) {
     switch (x) {
         case "login":
@@ -88,7 +104,7 @@ function toggleModal(x) {
                 <fieldset>
                     <legend>Register</legend>
                     <p>Email: <input type='email' name='registerEmail' id='registerEmail' placeholder='example@email.com' onblur='checkEmail(this.value)'/><span id='emailError'></span></p>
-                    <p>Username: <input type='text' name='registerUsername' id='registerUsername' /></p>
+                    <p>Username: <input type='text' name='registerUsername' id='registerUsername' onblur='checkName(this.value)' /><span id='nameError'></span></p>
                     <p>Password: <input type='password' name='registerPassword' id='registerPassword' /></p>
                     <p>Confirm Password: <input type='password' name='registerConfirmPassword' id='registerConfirmPassword' /></p> <br>
                     <div class='buttons'>
