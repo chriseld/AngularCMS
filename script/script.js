@@ -49,6 +49,22 @@ function closeModal() {
     $(".modal").toggleClass("visible")
 }
 
+function checkEmail(str) {
+    if (str.length == 0) {
+        document.getElementById("emailError").innerHTML = "";
+        return;
+      } else {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("emailError").innerHTML = this.responseText;
+          }
+        };
+        xmlhttp.open("GET", "registerEmail.php?q=" + str, true);
+        xmlhttp.send();
+      }
+}
+
 function toggleModal(x) {
     switch (x) {
         case "login":
@@ -68,18 +84,23 @@ function toggleModal(x) {
         break;
         case "register":
             $('.modalBox').html(`
+                <form action='../register.php' method='post'>
                 <fieldset>
                     <legend>Register</legend>
-                    <p>Email: <input type='email' name='loginEmail' id='loginEmail' placeholder='example@email.com' /></p>
-                    <p>Password: <input type='password' name='loginPassword' id='loginPassword' /></p> <br>
+                    <p>Email: <input type='email' name='registerEmail' id='registerEmail' placeholder='example@email.com' onblur='checkEmail(this.value)'/><span id='emailError'></span></p>
+                    <p>Username: <input type='text' name='registerUsername' id='registerUsername' /></p>
+                    <p>Password: <input type='password' name='registerPassword' id='registerPassword' /></p>
+                    <p>Confirm Password: <input type='password' name='registerConfirmPassword' id='registerConfirmPassword' /></p> <br>
                     <div class='buttons'>
-                        <span id='registerBtn' class='btn'>Register</span>
+                        <input type='submit' class='btn' value='Register'>
                         <span id='closeBtn' class='btn' onclick='closeModal()'>Close</span>
                     </div>
                 </fieldset>
+                </form>
             `);
         break;
         default:
             $('.modalBox').html("<p>Sorry, something went wrong!</p>");
     }
 }
+
