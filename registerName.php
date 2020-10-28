@@ -18,7 +18,7 @@ $returnStr = "";
 
 // lookup all hints from array if $q is different from ""
 if ($q !== "") {
-    $sql = "SELECT UPPER(username) AS username FROM users WHERE username = $q";
+    $sql = "SELECT UPPER(username) AS username FROM users WHERE username ='" + $q + "'";
     $result = $conn->query($sql);
 };
 

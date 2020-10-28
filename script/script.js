@@ -50,8 +50,12 @@ function closeModal() {
 }
 
 function checkEmail(str) {
+    var mailFormat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     if (str.length == 0) {
-        document.getElementById("emailError").innerHTML = "";
+        document.getElementById("emailError").innerHTML = "Email address required";
+        return;
+      } else if(!str.match(mailFormat)) {
+        document.getElementById("emailError").innerHTML = "Valid email address required";
         return;
       } else {
         var xmlhttp = new XMLHttpRequest();

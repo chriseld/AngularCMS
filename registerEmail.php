@@ -13,19 +13,18 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 
 // get the q parameter from URL
 $q = strtoupper($_REQUEST["q"]);
-
 $returnStr = "";
 
 // lookup all hints from array if $q is different from ""
 if ($q !== "") {
-    $sql = "SELECT UPPER(email) AS email FROM users WHERE email = $q";
+    $sql = "SELECT UPPER(email) AS email FROM users WHERE UPPER(email) = '{$q}'";
     $result = $conn->query($sql);
 };
 
 if ($result->num_rows > 0) {
-    $returnStr = "This email is already in use";    
+    $returnStr = "This email is already registered";    
 } else {
-    $returnStr = "0 results";
+    $returnStr = "&check;";
 };
 
 echo $returnStr;
