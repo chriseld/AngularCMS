@@ -67,6 +67,7 @@ function checkEmail(str) {
         xmlhttp.open("GET", "registerEmail.php?q=" + str, true);
         xmlhttp.send();
       }
+      checkRegBtn();
 }
 
 function checkName(str) {
@@ -83,6 +84,63 @@ function checkName(str) {
         xmlhttp.open("GET", "registerName.php?q=" + str, true);
         xmlhttp.send();
       }
+    checkRegBtn();
+}
+
+function checkPwd(str) {
+    str = str.trim();
+    if(str.length < 8) {
+        document.getElementById("pwdError").innerHTML = "Password must be at least 8 characters in length";
+        return;
+    } else {
+        document.getElementById("pwdError").innerHTML = "Valid";
+    }
+    checkRegBtn();
+}
+
+function checkPwdMatch(str) {
+    if(str != document.getElementById("registerPwd").value) {
+        document.getElementById("pwdMatchError").innerHTML = "Passwords must match";
+        return;
+    } else {
+        document.getElementById("pwdMatchError").innerHTML = "Valid";
+
+    }
+    checkRegBtn();
+}
+
+function checkRegBtn() {
+
+    var email = document.getElementById("emailError").innerHTML.trim();
+    var username = document.getElementById("nameError").innerHTML.trim();
+    var pwd = document.getElementById("pwdError").innerHTML.trim();
+    var pwdMatch = document.getElementById("pwdMatchError").innerHTML.trim();
+
+    if(email == "Valid" && username == "Valid" && pwd == "Valid" && pwdMatch == "Valid") {
+        $("#registerBtn").removeClass("disabled");
+        $("#registerBtn").addClass("enabled");
+        return;
+    } else {
+        $("#registerBtn").removeClass("enabled");
+        $("#registerBtn").addClass("disabled");
+        return;
+    }
+}
+
+function register() {
+    if($("#registerBtn").hasClass("enabled")) {
+        email = document.getElementById("registerEmail").value;
+        username = document.getElementById("registerUsername").value;
+        password = document.getElementById("registerPwd").value;
+
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.open("GET", "register.php?e=" + email + "&u=" + username + "&p=" + password, true);
+        xmlhttp.send();
+
+        toggleModal("close");
+
+        alert("Thank you for registering. You are now logged in.");
+    }
 }
 
 function toggleModal(x) {
@@ -109,15 +167,18 @@ function toggleModal(x) {
                     <legend>Register</legend>
                     <p>Email: <input type='email' name='registerEmail' id='registerEmail' placeholder='example@email.com' onblur='checkEmail(this.value)'/><span id='emailError'></span></p>
                     <p>Username: <input type='text' name='registerUsername' id='registerUsername' onblur='checkName(this.value)' /><span id='nameError'></span></p>
-                    <p>Password: <input type='password' name='registerPassword' id='registerPassword' /></p>
-                    <p>Confirm Password: <input type='password' name='registerConfirmPassword' id='registerConfirmPassword' /></p> <br>
+                    <p>Password: <input type='password' name='registerPwd' id='registerPwd' onblur='checkPwd(this.value)' /><span id='pwdError'></span></p>
+                    <p>Confirm Password: <input type='password' name='registerConfirmPassword' id='registerConfirmPassword' onblur='checkPwdMatch(this.value)' /><span id='pwdMatchError'></p> <br>
                     <div class='buttons'>
-                        <input type='submit' class='btn' value='Register'>
+                        <span class='btn disabled' id='registerBtn' onclick='register()'>Register</span>
                         <span id='closeBtn' class='btn' onclick='closeModal()'>Close</span>
                     </div>
                 </fieldset>
                 </form>
             `);
+        break;
+        case "close":
+            $(".modal").toggleClass("visible");
         break;
         default:
             $('.modalBox').html("<p>Sorry, something went wrong!</p>");

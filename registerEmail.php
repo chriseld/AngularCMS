@@ -24,7 +24,7 @@ if ($q !== "") {
 if ($result->num_rows > 0) {
     $returnStr = "This email is already registered";    
 } else {
-    $returnStr = "&check;";
+    $returnStr = "Valid";
 };
 
 echo $returnStr;

@@ -25,7 +25,7 @@ if ($q !== "") {
 if ($result->num_rows > 0) {
     $returnStr = "This username is already in use";    
 } else {
-    $returnStr = "&check;";
+    $returnStr = "Valid";
 };
 
 echo $returnStr;
