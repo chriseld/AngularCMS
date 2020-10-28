@@ -71,7 +71,7 @@ function checkEmail(str) {
 
 function checkName(str) {
     if (str.length == 0) {
-        document.getElementById("nameError").innerHTML = "";
+        document.getElementById("nameError").innerHTML = "Username required";
         return;
       } else {
         var xmlhttp = new XMLHttpRequest();
