@@ -127,6 +127,17 @@ function checkRegBtn() {
     }
 }
 
+function sendConfirmationEmail() {
+
+    var email = document.getElementById("registerEmail").value.trim();
+    var username = document.getElementById("registerUsername").value.trim();
+
+    var xmlhttp = new XMLHttpRequest();
+    regStr = "registerSendEmail.php?e=" + email + "&u=" + username;
+    xmlhttp.open("GET", regStr, true);
+    xmlhttp.send();
+}
+
 function register() {
     if($("#registerBtn").hasClass("enabled")) {
         email = document.getElementById("registerEmail").value;
@@ -137,7 +148,9 @@ function register() {
         xmlhttp.open("GET", "register.php?e=" + email + "&u=" + username + "&p=" + password, true);
         xmlhttp.send();
 
-        toggleModal("close");
+        sendConfirmationEmail();
+
+        closeModal();
 
         alert("Thank you for registering. You are now logged in.");
     }
@@ -176,9 +189,6 @@ function toggleModal(x) {
                 </fieldset>
                 </form>
             `);
-        break;
-        case "close":
-            $(".modal").toggleClass("visible");
         break;
         default:
             $('.modalBox').html("<p>Sorry, something went wrong!</p>");
