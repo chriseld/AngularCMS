@@ -71,8 +71,17 @@ function checkEmail(str) {
 }
 
 function checkName(str) {
+
+    var pattern = new RegExp(/[~`!#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?]/); //unacceptable chars
+
     if (str.length == 0) {
         document.getElementById("nameError").innerHTML = "Username required";
+        return;
+      } else if(str.indexOf(' ') >= 0) {
+        document.getElementById("nameError").innerHTML = "Username must not contain spaces";
+        return;
+      } else if(pattern.test(str)) {
+        document.getElementById("nameError").innerHTML = "Username must not contain special characters";
         return;
       } else {
         var xmlhttp = new XMLHttpRequest();
