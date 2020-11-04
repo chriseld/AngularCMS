@@ -46,7 +46,7 @@ function setSwitchImg() {
 })();
 
 function closeModal() {
-    $(".modal").toggleClass("visible")
+    $(".modal").toggleClass("visible");
 }
 
 function checkEmail(str) {
@@ -165,6 +165,24 @@ function register() {
     }
 }
 
+function login() {
+    var email = document.getElementById("loginEmail").value;
+    var password = document.getElementById("loginPassword").value;
+
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("GET", "login.php?e=" + email + "&p=" + password, true);
+    xmlhttp.send();
+
+    xmlhttp.onreadystatechange = function () {
+    if (xmlhttp.DONE) {
+        $(".modal").removeClass("visible");
+        $("#accountModalBtn").addClass("loggedin");
+    } else {
+        alert("Invalid credentials." + xmlhttp.status);
+    }
+    }
+}
+
 function toggleModal(x) {
     switch (x) {
         case "login":
@@ -174,7 +192,7 @@ function toggleModal(x) {
                     <p>Email: <input type='email' name='loginEmail' id='loginEmail' placeholder='example@email.com' /></p>
                     <p>Password: <input type='password' name='loginPassword' id='loginPassword' /></p> <br>
                     <div class='buttons'>
-                        <span id='loginBtn' class='btn'>Login</span>
+                        <span id='loginBtn' class='btn' onclick='login()'>Login</span>
                         <span id='registerBtn' class='btn' onclick='toggleModal("register")'>Not a user yet? Register!</span>
                         <span id='closeBtn' class='btn' onclick='closeModal()'>Close</span>
                     </div>

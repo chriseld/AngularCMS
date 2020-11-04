@@ -20,6 +20,10 @@ html, body {
     --color-shadow: #68695e;
 }
 
+.loggedin {
+    content:url("../images/icons/profile-loggedin.png")
+}
+
 .container {
     width: 100%;
     height: 100%;

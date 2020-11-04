@@ -1,4 +1,6 @@
-<?php include "autoload.php"; ?>
+<?php 
+session_start();
+include "autoload.php"; ?>
 
 <?php
 $servername = "localhost";
