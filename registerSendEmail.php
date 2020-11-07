@@ -1,5 +1,7 @@
 <?php 
 
+session_start();
+
 $e = strtoupper($_REQUEST["e"]);
 $u = strtoupper($_REQUEST["u"]);
 

@@ -159,7 +159,14 @@ function register() {
 
         sendConfirmationEmail();
 
-        closeModal();
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                $(".modal").removeClass("visible");
+                $("#accountModalBtn").addClass("loggedin");
+            } else {
+                alert("error");
+            }
+        }
 
         alert("Thank you for registering. You are now logged in.");
     }
@@ -174,18 +181,88 @@ function login() {
     xmlhttp.send();
 
     xmlhttp.onreadystatechange = function () {
-    if (xmlhttp.DONE) {
-        $(".modal").removeClass("visible");
-        $("#accountModalBtn").addClass("loggedin");
-    } else {
-        alert("Invalid credentials." + xmlhttp.status);
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            if(xmlhttp.response == "success") {
+                $(".modal").removeClass("visible");
+                $("#accountModalBtn").addClass("loggedin");
+            } else {
+                alert("Invalid credentials.");
+            }
     }
+    }
+}
+
+function logout() {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("GET", "logout.php", true);
+    xmlhttp.send();
+
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            $(".modal").removeClass("visible");
+            $("#accountModalBtn").removeClass("loggedin");
+        }
+    }
+}
+
+function getUsername() {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("GET", "username.php", true);
+    xmlhttp.send();
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            if(xmlhttp.response != "") {
+                document.getElementById("displayUsername").innerHTML = xmlhttp.response;
+            }
+        }
+    }
+}
+
+function getRole() {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("GET", "role.php", true);
+    xmlhttp.send();
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            if(xmlhttp.response != "") {
+                document.getElementById("displayRole").innerHTML = xmlhttp.response;
+            }
+        }
+    }
+}
+
+function getId() {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("GET", "id.php", true);
+    xmlhttp.send();
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            console.log(xmlhttp.response);
+            return xmlhttp.response;
+        } else {
+            console.log("Error.");
+        }
     }
 }
 
 function toggleModal(x) {
     switch (x) {
         case "login":
+            if($('#accountModalBtn').hasClass('loggedin')) {
+                $('.modalBox').html(`
+                <fieldset>
+                    <legend>Account</legend>
+                    <p>Current user logged in: <span id="displayUsername"></span></p>
+                    <p>Current user role: <span id="displayRole"></span></p><br>
+                    <div class='buttons'>
+                        <span id='logoutBtn' class='btn' onclick='logout()'>Logout</span>
+                        <span id='closeBtn' class='btn' onclick='closeModal()'>Close</span>
+                    </div>
+                </fieldset>
+            `);
+            getUsername();
+            getRole();
+            } else {
             $('.modalBox').html(`
                 <fieldset>
                     <legend>Log In</legend>
@@ -198,6 +275,7 @@ function toggleModal(x) {
                     </div>
                 </fieldset>
             `);
+            }
             $(".modal").toggleClass("visible");
         break;
         case "register":

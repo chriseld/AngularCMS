@@ -1,5 +1,7 @@
 <?php 
 
+session_start();
+
 include "autoload.php";
 
 $e = strtoupper($_REQUEST["e"]);

@@ -17,10 +17,6 @@ if ($conn->connect_error) {
 }
 ?>
 
-<?php
-    
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
