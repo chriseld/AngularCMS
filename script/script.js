@@ -24,6 +24,18 @@ function setSwitchImg() {
         document.getElementById("accountModalBtn").src = "../images/icons/profile-dark.png";
         document.getElementById("accountModalBtn").title = "Login";
         document.getElementById("accountModalBtn").alt = "Image courtesy of Alice Design from The Noun Project";
+
+        document.getElementById("authorBtn").src = "../images/icons/write-dark.png";
+        document.getElementById("authorBtn").title = "Author Controls";
+        document.getElementById("authorBtn").alt = "Image courtesy of Alice Design from The Noun Project";
+
+        document.getElementById("modBtn").src = "../images/icons/moderator-dark.png";
+        document.getElementById("modBtn").title = "Moderator Controls";
+        document.getElementById("modBtn").alt = "Image courtesy of Alice Design from The Noun Project";
+
+        document.getElementById("adminBtn").src = "../images/icons/admin-dark.png";
+        document.getElementById("adminBtn").title = "Admin Controls";
+        document.getElementById("adminBtn").alt = "Image courtesy of Alice Design from The Noun Project";
 	} else {
         document.getElementById("switch").src = "../images/icons/lightmode.png";
         document.getElementById("switch").title = "Switch to Light Mode";
@@ -32,6 +44,18 @@ function setSwitchImg() {
         document.getElementById("accountModalBtn").src = "../images/icons/profile-light.png";
         document.getElementById("accountModalBtn").title = "Login";
         document.getElementById("accountModalBtn").alt = "Image courtesy of Alice Design from The Noun Project";
+
+        document.getElementById("authorBtn").src = "../images/icons/write-light.png";
+        document.getElementById("authorBtn").title = "Author Controls";
+        document.getElementById("authorBtn").alt = "Image courtesy of Alice Design from The Noun Project";
+
+        document.getElementById("modBtn").src = "../images/icons/moderator-light.png";
+        document.getElementById("modBtn").title = "Moderator Controls";
+        document.getElementById("modBtn").alt = "Image courtesy of Alice Design from The Noun Project";
+
+        document.getElementById("adminBtn").src = "../images/icons/admin-light.png";
+        document.getElementById("adminBtn").title = "Admin Controls";
+        document.getElementById("adminBtn").alt = "Image courtesy of Alice Design from The Noun Project";
 	}
 }
 
@@ -185,6 +209,7 @@ function login() {
             if(xmlhttp.response == "success") {
                 $(".modal").removeClass("visible");
                 $("#accountModalBtn").addClass("loggedin");
+                showButtons();
             } else {
                 alert("Invalid credentials.");
             }
@@ -243,6 +268,39 @@ function getId() {
             console.log("Error.");
         }
     }
+}
+
+function showButtons() {
+    var userRole = "";
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("GET", "role.php", true);
+    xmlhttp.send();
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            if(xmlhttp.response != "") {
+                userRole = xmlhttp.response;
+
+                if($('#accountModalBtn').hasClass('loggedin')) {
+                    switch(userRole) {
+                        case "author":
+                            $('#authorBtn').show();
+                        break;
+                
+                        case "moderator":
+                            $('#authorBtn').show();
+                            $('#modBtn').show();
+                        break;
+                
+                        case "admin":
+                            $('#authorBtn').show();
+                            $('#modBtn').show();
+                            $('#adminBtn').show();
+                        break;
+                    }
+            }
+        }
+    }
+};
 }
 
 function toggleModal(x) {

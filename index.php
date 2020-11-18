@@ -38,6 +38,9 @@ if ($conn->connect_error) {
      <nav>
         <img src="/images/icons/darkmode.png" id="switch" onclick="toggleTheme()"></img>
         <img src="/images/icons/profile-dark.png" alt="Log in/register" id="accountModalBtn" onclick="toggleModal('login')">
+        <img src="/images/icons/write-dark.png" alt="Author Controls" id="authorBtn" onclick="toggleModal('author')">
+        <img src="/images/icons/moderator-dark.png" alt="Moderator Controls" id="modBtn" onclick="toggleModal('moderator')">
+        <img src="/images/icons/admin-dark.png" alt="Admin Controls" id="adminBtn" onclick="toggleModal('admin')">
      </nav>
 
     <article>
@@ -60,6 +63,7 @@ if ($conn->connect_error) {
 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 <script src="/script/script.js"></script>
+<script>$(document).ready(function(){$("#authorBtn").hide(); $("#modBtn").hide(); $("#adminBtn").hide();}); </script>
 
 </body>
 </html>
